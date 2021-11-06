@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Beer {
-    @Column(name = "beer_d",unique = true)
+    @Column(name = "beer_d",unique = true,length = 255)
     private String beerId;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

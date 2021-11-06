@@ -2,11 +2,13 @@ package com.example.demo;
 
 import com.example.demo.model.Beer;
 import com.example.demo.repo.BeerRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import java.util.UUID;
 
@@ -30,5 +32,11 @@ public class MyAppApplication implements CommandLineRunner {
         beerRepository.createBeer(new Beer(UUID.randomUUID().toString(),"Beer-2",13.0));
         beerRepository.createBeer(new Beer(UUID.randomUUID().toString(),"Beer-3",14.0));
         beerRepository.createBeer(new Beer(UUID.randomUUID().toString(),"Beer-4",16.0));
+    }
+
+    @Bean
+    public ModelMapper modelMapper()
+    {
+        return new ModelMapper();
     }
 }
